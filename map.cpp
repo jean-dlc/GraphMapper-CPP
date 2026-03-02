@@ -1,11 +1,15 @@
-std::vector<vec2> Grille;
-float x,y;
-Grille.reserve(400);  //lancement du jeu permet de gagner en efficacité sans avoir a réalouer la grille
-for(int i=0;i<400;i++){
-    x= i%20
-    y= i/20
-    i= new case((x,y),bool 1,bool 0)
-    
-
-
+#include "map.hpp"
+#include "Case.hpp"
+#include <vector>
+std::vector<Case> Grille;
+map::map(int l, int h){ 
+    float x,y;
+     int nb =l*h;
+    Grille.reserve(nb);
+    for(int i=0;i<nb;i++){
+        x= i%l;
+        y= i/l;
+        Grille.emplace_back(x, y, true, false);
+    }
 }
+map::map(): map(20,20){}
