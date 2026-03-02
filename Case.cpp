@@ -13,7 +13,7 @@ bool Case::getvisible()const{
 }
 
 bool& Case::setvisible(){
-    if(visible == 0){
+    if(visible == true){
         return visible;
     }
 }
