@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QPainter>
-#include "Map.hpp"
+#include "map.hpp"
 
 class MainWindow: public QMainWindow{
 

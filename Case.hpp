@@ -8,7 +8,7 @@
 enum class casetype{Vide, Plein, Start, End};
 
 
-class Case: public Map{   
+class Case: public map{   
     public :
         Case(vec2 posi, casetype type,bool visible);
 
