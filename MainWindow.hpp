@@ -3,15 +3,17 @@
 
 #include <QMainWindow>
 #include <QPainter>
-#include "Map.hpp"
+#include "map.hpp"
 
-class affi: public QMainWindow{
+class MainWindow: public QMainWindow{
 
     private :
-        int* pointer ;
+        Map* map_pointer ;
 
     public:
-        void paintEvent(QPaintEvent *event) const override;
+        MainWindow(Map* map_pointeur, QWidget *parent = nullptr);
+
+        void paintEvent(QPaintEvent *event) override;
 
 };
 
