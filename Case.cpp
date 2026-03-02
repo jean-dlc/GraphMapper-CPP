@@ -1,6 +1,8 @@
 #include "Case.hpp"
 
-Case::Case(vec2 posi, casetype type, bool visible){}
+Case::Case(vec2 posi, casetype type, bool visible)
+: posi(posi), type(type), visible(visible)
+{}
 
 
 vec2 Case::getcoord()const{
@@ -12,9 +14,9 @@ bool Case::getvisible()const{
     return visible;
 }
 
-bool& Case::setvisible(){
+void Case::setvisible(bool v){
     if(visible == true){
-        return visible;
+        visible = v;
     }
 }
 

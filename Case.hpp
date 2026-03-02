@@ -4,11 +4,11 @@
 #include <unordered_map>
 #include <vector>
 #include "vec2.hpp"
-
+#include "map.hpp"
 enum class casetype{Vide, Plein, Start, End};
 
 
-class Case{   
+class Case: public Map{   
     public :
         Case(vec2 posi, casetype type,bool visible);
 
@@ -16,7 +16,7 @@ class Case{
         casetype getcasetype() const;
         bool getvisible() const ; 
 
-        bool& setvisible();
+        void setvisible(bool v);
 
 
     private : 
