@@ -51,7 +51,7 @@ std::vector<Case> map::getmap(){
 //     return Grille[i];
 // }
 
-void map::set_case_in_grille(ivec2 vec, casetype type){
+void map::set_casetype_in_grille(ivec2 vec, casetype type){
     int i = vec.x + (vec.y * largeur);
     
     // verif si index valide
