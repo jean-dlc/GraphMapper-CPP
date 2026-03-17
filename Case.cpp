@@ -1,11 +1,11 @@
 #include "Case.hpp"
 
-Case::Case(vec2 posi, casetype type, bool visible)
+Case::Case(ivec2 posi, casetype type, bool visible)
 : posi(posi), type(type), visible(visible)
 {}
 
 
-vec2 Case::getcoord()const{
+ivec2 Case::getcoord()const{
     return posi;
 
 }
@@ -22,5 +22,11 @@ void Case::setvisible(){
 casetype Case::getcasetype()const{
     return type;
 }
+
+void Case::setcasetype(casetype type){
+    this->type = type;
+}
+    
+
 
 

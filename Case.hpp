@@ -3,24 +3,25 @@
 
 #include <unordered_map>
 #include <vector>
-#include "vec2.hpp"
+#include "ivec2.hpp"
 #include "map.hpp"
 enum class casetype{Vide, Plein, Start, End};
 
 
-class Case: public map{   
+class Case{   
     public :
-        Case(vec2 posi, casetype type,bool visible);
+        Case(ivec2 posi, casetype type,bool visible);
 
-        vec2 getcoord() const;
+        ivec2 getcoord() const;
         casetype getcasetype() const;
         bool getvisible() const ; 
 
         void setvisible();
-
+        void setcasetype(casetype type);
+        
 
     private : 
-        vec2 posi;
+        ivec2 posi;
         bool visible;
         casetype type;
 };
