@@ -1,6 +1,16 @@
-#include VEC2_HPP
-#include <unordered_map>
-#include <iostream>
+#include <QApplication>
+#include "MainWindow.hpp"
+#include "map.hpp"
 
-std::unordered_map<vec2, int> Grille;
-Grille.reserve(400);  //lancement du jeu permet de gagner en efficacité sans avoir a réalouer la grille
+int main(int argc, char *argv[]) {
+    QApplication a(argc, argv);
+
+    // 1. On crée l'objet Map (les données)
+    Map maMap; 
+
+    // 2. On crée la fenêtre en lui passant l'ADRESSE de la map (&)
+    MainWindow w(&maMap); 
+    
+    w.show(); // On affiche la fenêtre
+    return a.exec(); // On lance la boucle d'événements Qt
+}

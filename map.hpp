@@ -14,6 +14,7 @@ public:
     Case getCase(ivec2 vec);
     void set_casetype_in_grille(ivec2 vec, casetype type);
 
+    int get_cell_size() const ;
     std::vector<Case> getmap();
     // std::vector<Case>& setmap(); inutile je pense
 };

@@ -59,3 +59,7 @@ void map::set_casetype_in_grille(ivec2 vec, casetype type){
         grille[i].setcasetype(type);
     }
 }
+
+int map::get_cell_size() const {
+    return cell_size;
+}
