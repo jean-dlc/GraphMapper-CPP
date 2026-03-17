@@ -1,7 +1,7 @@
 #include "map.hpp"
 #include "Case.hpp"
 #include <vector>
-
+#include <ctime>
 
 
 map::map(int l, int h)
@@ -62,4 +62,23 @@ void map::set_casetype_in_grille(ivec2 vec, casetype type){
 
 int map::get_cell_size() const {
     return cell_size;
+}
+// il faut ajouter un videur de case pour eviter conflit a deuxieme lancement
+// permettre de modif la variable de chance case plein (20%)
+void map::generer_random_map(std::vector<Case> &grille){
+    std::srand(std::time(nullptr));
+    
+    //def case start/end
+    int index_start = std::rand()%(grille.size()) ;
+    grille[index_start].setcasetype(casetype::Start);
+
+    int index_end = std::rand()%(grille.size()) ;
+    grille[index_end].setcasetype(casetype::End);
+
+    for(Case &c : grille){
+        int val_aleatoire = std::rand()%100 ; 
+        if(val_aleatoire<19){
+            c.setcasetype(casetype::Plein);
+        }
+}
 }

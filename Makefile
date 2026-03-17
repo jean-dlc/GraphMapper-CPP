@@ -371,6 +371,10 @@ compiler_moc_header_make_all: moc_window.cpp moc_render_area.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_window.cpp moc_render_area.cpp
 moc_window.cpp: src/window.hpp \
+		src/render_area.hpp \
+		src/map.hpp \
+		src/ivec2.hpp \
+		src/Case.hpp \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/jean/c++/2526-4imi-projetscpp-jean_arthus/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/jean/c++/2526-4imi-projetscpp-jean_arthus -I/home/jean/c++/2526-4imi-projetscpp-jean_arthus/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/window.hpp -o moc_window.cpp
@@ -400,6 +404,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 ####### Compile
 
 main.o: src/main.cpp src/window.hpp \
+		src/render_area.hpp \
 		src/map.hpp \
 		src/ivec2.hpp \
 		src/Case.hpp

@@ -22,6 +22,7 @@ public:
     int get_cell_size() const ;
     std::vector<Case> getgrille();
     // std::vector<Case>& setmap(); inutile je pense
+    void generer_random_map(std::vector<Case> &grille);
 };
 
 #endif

@@ -24,7 +24,17 @@ casetype Case::getcasetype()const{
 }
 
 void Case::setcasetype(casetype type){
-    this->type = type;
+    if(this->type != casetype::End && this->type != casetype::Start){ //empeche modif start/end dans la boucle de generation aleatoire map
+        this->type = type;
+    }
+    else{
+        if(type == casetype::End){
+            this->type = casetype::End;
+        }
+        if(type== casetype::Start){
+            this->type = casetype::Start;
+        }
+    }
 }
     
 
