@@ -1,5 +1,10 @@
 
+#ifndef MAP_HPP
+#define MAP_HPP
+
 #include "ivec2.hpp"
+#include "Case.hpp"
+
 
 class map {
 private:
@@ -15,6 +20,8 @@ public:
     void set_casetype_in_grille(ivec2 vec, casetype type);
 
     int get_cell_size() const ;
-    std::vector<Case> getmap();
+    std::vector<Case> getgrille();
     // std::vector<Case>& setmap(); inutile je pense
 };
+
+#endif

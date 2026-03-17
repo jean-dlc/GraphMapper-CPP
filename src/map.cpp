@@ -33,7 +33,7 @@ Case map::getCase(ivec2 vec){
 }
 
 
-std::vector<Case> map::getmap(){
+std::vector<Case> map::getgrille(){
     return grille;
 }
 
