@@ -14,10 +14,8 @@ bool Case::getvisible()const{
     return visible;
 }
 
-void Case::setvisible(bool v){
-    if(visible == true){
-        visible = v;
-    }
+void Case::setvisible(){
+    visible == true; // une case devient visible jusqu'a reinitialisation du jeu
 }
 
 

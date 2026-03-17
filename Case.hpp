@@ -16,7 +16,7 @@ class Case: public map{
         casetype getcasetype() const;
         bool getvisible() const ; 
 
-        void setvisible(bool v);
+        void setvisible();
 
 
     private : 
