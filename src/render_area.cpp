@@ -31,12 +31,19 @@ void render_area::paintEvent(QPaintEvent*) {
     for (const Case &c : grille) {
         ivec2 pos = c.getcoord();
         
-        //Couleur : Plein = Noir, Vide = Blanc
-        if (c.getcasetype() == casetype::Plein) {
-            painter.setBrush(Qt::black);
-        } else {
-            painter.setBrush(Qt::white);
-        }
+        // Couleur selon le type de case
+    if (c.getcasetype() == casetype::Plein) {
+        painter.setBrush(Qt::black);
+    } 
+    else if (c.getcasetype() == casetype::Start) {
+        painter.setBrush(Qt::green); // Départ en Vert
+    } 
+    else if (c.getcasetype() == casetype::End) {
+        painter.setBrush(Qt::red);   // Arrivée en Rouge
+    } 
+    else {
+        painter.setBrush(Qt::white); // Vide = Blanc
+    }
 
         //posi * taille pixel
         painter.drawRect(pos.x * cs, pos.y * cs, cs, cs);
