@@ -57,7 +57,8 @@ SOURCES       = src/main.cpp \
 		src/render_area.cpp \
 		src/map.cpp \
 		src/Case.cpp \
-		src/ivec2.cpp moc_window.cpp \
+		src/ivec2.cpp \
+		src/Mapsolver.cpp moc_window.cpp \
 		moc_render_area.cpp
 OBJECTS       = main.o \
 		window.o \
@@ -65,6 +66,7 @@ OBJECTS       = main.o \
 		map.o \
 		Case.o \
 		ivec2.o \
+		Mapsolver.o \
 		moc_window.o \
 		moc_render_area.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -124,6 +126,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -147,12 +150,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/render_area.hpp \
 		src/map.hpp \
 		src/Case.hpp \
-		src/ivec2.hpp src/main.cpp \
+		src/ivec2.hpp \
+		src/Mapsolver.hpp src/main.cpp \
 		src/window.cpp \
 		src/render_area.cpp \
 		src/map.cpp \
 		src/Case.cpp \
-		src/ivec2.cpp
+		src/ivec2.cpp \
+		src/Mapsolver.cpp
 QMAKE_TARGET  = Projet
 DESTDIR       = 
 TARGET        = Projet
@@ -221,6 +226,7 @@ Makefile: projet.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -299,6 +305,7 @@ Makefile: projet.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -334,8 +341,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/window.hpp src/render_area.hpp src/map.hpp src/Case.hpp src/ivec2.hpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/main.cpp src/window.cpp src/render_area.cpp src/map.cpp src/Case.cpp src/ivec2.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/window.hpp src/render_area.hpp src/map.hpp src/Case.hpp src/ivec2.hpp src/Mapsolver.hpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/main.cpp src/window.cpp src/render_area.cpp src/map.cpp src/Case.cpp src/ivec2.cpp src/Mapsolver.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -434,6 +441,12 @@ Case.o: src/Case.cpp src/Case.hpp \
 
 ivec2.o: src/ivec2.cpp src/ivec2.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ivec2.o src/ivec2.cpp
+
+Mapsolver.o: src/Mapsolver.cpp src/Mapsolver.hpp \
+		src/map.hpp \
+		src/ivec2.hpp \
+		src/Case.hpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Mapsolver.o src/Mapsolver.cpp
 
 moc_window.o: moc_window.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_window.o moc_window.cpp

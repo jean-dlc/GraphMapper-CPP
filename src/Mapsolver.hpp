@@ -4,14 +4,14 @@
 #include "map.hpp"
 #include <vector>
 
-class MapSolver {
+class Mapsolver {
 public:
     //pointer vers map
-    MapSolver(map* target_map);
+    Mapsolver(map* target_map);
 
     void solve_tremaux();
     void solve_dijkstra();
-    std::vector<int> get_voisins(int index) const;
+    std::vector<voisin> get_voisins(int index) const;
 
 private:
     map* m_map;

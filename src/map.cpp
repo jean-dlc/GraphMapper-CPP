@@ -69,16 +69,42 @@ void map::generer_random_map(std::vector<Case> &grille){
     std::srand(std::time(nullptr));
     
     //def case start/end
-    int index_start = std::rand()%(grille.size()) ;
+    this->index_start = std::rand()%(grille.size()) ;
     grille[index_start].setcasetype(casetype::Start);
 
-    int index_end = std::rand()%(grille.size()) ;
-    grille[index_end].setcasetype(casetype::End);
+    this->index_end = std::rand() % (grille.size());
+    while(this->index_end == this->index_start) { 
+        this->index_end = std::rand() % (grille.size());
+    }
+    grille[index_end].setcasetype(casetype::End);   
+   
 
-    for(Case &c : grille){
+    for(Case &c : grille){ // start end proteger par le setcasetype
         int val_aleatoire = std::rand()%100 ; 
         if(val_aleatoire<19){
             c.setcasetype(casetype::Plein);
         }
+    
 }
+}
+
+int map::get_id(ivec2 vec) const {
+    int i = vec.x + (vec.y * largeur);
+    return i;
+}
+
+int map::get_largeur() const {
+    return largeur;
+}
+
+int map::get_hauteur() const {
+    return hauteur;
+}
+
+int map::get_index_start() const {
+    return index_start;
+}
+
+int map::get_index_end() const {
+    return index_end;
 }
