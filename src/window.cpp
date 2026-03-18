@@ -25,6 +25,12 @@ Window::Window(map* m, QWidget *parent) : QMainWindow(parent) {
     control_layout->addWidget(btn_start);
     control_layout->addStretch(); // Pousse les boutons vers le haut
 
+    // Dans le constructeur, après avoir créé btn_generate
+// On stocke le pointeur de la map pour pouvoir l'utiliser plus tard
+    this->m_ptr = m; 
+
+    connect(btn_generate, &QPushButton::clicked, this, &Window::on_click_generer_random_map);
+
     main_layout->addLayout(control_layout);
 
     setWindowTitle("Projet Labyrinthe");
@@ -32,5 +38,12 @@ Window::Window(map* m, QWidget *parent) : QMainWindow(parent) {
 }
 
 Window::~Window(){
+
+}
+
+void Window::on_click_generer_random_map() {
     
+    m_ptr->generer_random_map(m_ptr->getgrille());
+
+    area->update(); 
 }

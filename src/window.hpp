@@ -19,8 +19,14 @@ public:
     Window(map* m, QWidget *parent = nullptr);
     ~Window();
 
+private slots:
+    void on_click_generer_random_map(); //clique btn lance fct dans map.cpp
+
+
 private:
     render_area* area; 
+
+    map* m_ptr;
 
     //boutons
     QPushButton *btn_generate;

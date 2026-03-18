@@ -20,7 +20,7 @@ public:
     void set_casetype_in_grille(ivec2 vec, casetype type);
 
     int get_cell_size() const ;
-    std::vector<Case> getgrille();
+    std::vector<Case>& getgrille();
     // std::vector<Case>& setmap(); inutile je pense
     void generer_random_map(std::vector<Case> &grille);
 };
