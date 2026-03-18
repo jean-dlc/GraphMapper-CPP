@@ -5,6 +5,11 @@
 #include "ivec2.hpp"
 #include "Case.hpp"
 
+struct voisin {
+    int index;
+    casetype type;
+};
+
 
 class map {
 private:
@@ -20,7 +25,7 @@ public:
     void set_casetype_in_grille(ivec2 vec, casetype type);
 
     int get_cell_size() const ;
-    std::vector<Case>& getgrille();
+    std::vector<Case>& getgrille(); //doute sur le nom  verif a faire sur const
     // std::vector<Case>& setmap(); inutile je pense
     void generer_random_map(std::vector<Case> &grille);
 };
