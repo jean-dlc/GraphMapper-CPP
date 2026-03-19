@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "map.hpp"
+#include "Mapsolver.hpp"
 
 class render_area : public QWidget
 {
@@ -14,6 +15,11 @@ public:
     //lien map affichage
     void set_map(map* m);
 
+    void set_solver(Mapsolver* s) {
+        solver_ptr = s;
+        update(); // Redessine la zone pour afficher le chemin
+    }
+
 protected:
     void paintEvent(QPaintEvent *event) override;
     //clic faire case pleine
@@ -22,6 +28,7 @@ protected:
 private:
     
     map* map_ptr;
+    Mapsolver* solver_ptr = nullptr;
 };
 
 #endif

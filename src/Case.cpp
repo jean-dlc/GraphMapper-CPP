@@ -36,6 +36,10 @@ void Case::setcasetype(casetype type){
         }
     }
 }
+
+void Case::setcasetype_reset(casetype type){
+    this->type = type; 
+}
     
 
 

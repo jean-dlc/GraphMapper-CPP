@@ -18,6 +18,7 @@ class Case{
 
         void setvisible();
         void setcasetype(casetype type);
+        void setcasetype_reset(casetype type); 
         
 
     private : 

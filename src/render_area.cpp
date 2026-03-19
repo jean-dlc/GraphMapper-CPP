@@ -32,22 +32,57 @@ void render_area::paintEvent(QPaintEvent*) {
         ivec2 pos = c.getcoord();
         
         // Couleur selon le type de case
-    if (c.getcasetype() == casetype::Plein) {
-        painter.setBrush(Qt::black);
-    } 
-    else if (c.getcasetype() == casetype::Start) {
-        painter.setBrush(Qt::green); // Départ en Vert
-    } 
-    else if (c.getcasetype() == casetype::End) {
-        painter.setBrush(Qt::red);   // Arrivée en Rouge
-    } 
-    else {
-        painter.setBrush(Qt::white); // Vide = Blanc
-    }
+        if (c.getcasetype() == casetype::Plein) {
+            painter.setBrush(Qt::black);
+        } 
+        else if (c.getcasetype() == casetype::Start) {
+            painter.setBrush(Qt::green); // Départ en Vert
+        } 
+        else if (c.getcasetype() == casetype::End) {
+            painter.setBrush(Qt::red);   // Arrivée en Rouge
+        } 
+        else {
+            painter.setBrush(Qt::white); // Vide = Blanc
+        }
 
         //posi * taille pixel
         painter.drawRect(pos.x * cs, pos.y * cs, cs, cs);
+
+       if (solver_ptr) {
+    const std::vector<int>& chemin = solver_ptr->get_chemin();
+
+    painter.setBrush(QColor(0, 120, 255, 150)); // couleur cases chemin
+    painter.setPen(Qt::black); // couleur chiffres chemin
+
+    QFont font = painter.font();
+    font.setPointSize(8);
+    painter.setFont(font);
+
+    for (int i = 0; i < chemin.size(); i++) {
+
+        int id_case = chemin[i];
+
+        //skip start/end pour la couleur BLEUE
+        if (id_case == map_ptr->get_index_start() ||
+            id_case == map_ptr->get_index_end()) {
+            continue;
+        }
+
+        int x = id_case % map_ptr->get_largeur();
+        int y = id_case / map_ptr->get_largeur();
+
+        //carré bleu
+        painter.drawRect(x * cs + 2, y * cs + 2, cs - 4, cs - 4);
+
+        //numéro par-dessus
+        painter.drawText(
+            x * cs, y * cs, cs, cs,
+            Qt::AlignCenter,
+            QString::number(i)
+        );
     }
+}
+}
 }
 
 //dessin murs
