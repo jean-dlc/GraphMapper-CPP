@@ -10,10 +10,10 @@ Mapsolver::Mapsolver(map* target_map) : m_map(target_map) {
 
 
 void Mapsolver::solve_BFS() {
+
+    //initialisation
     auto start_time = std::chrono::high_resolution_clock::now();
-
     current_algo = AlgoType::BFS;
-
     chemin_final_bfs.clear();
 
     int depart = m_map->get_index_start();
@@ -75,7 +75,7 @@ void Mapsolver::solve_BFS() {
 }
 
 void Mapsolver::solve_DFS() {
-    
+
     auto start_time = std::chrono::high_resolution_clock::now();
 
     current_algo = AlgoType::DFS;
@@ -107,6 +107,19 @@ void Mapsolver::solve_DFS() {
 
         bool avance = false;
 
+        //obligation de refaire une boucle car position end supposée inconnue
+        for (const auto& v : voisins) {
+            if(v.type == casetype::End){
+                visited[v.index] = true;
+                path.push_back(v.index);
+                chemin_final_dfs = path;
+                printf("Chemin trouve ! Taille : %zu\n", path.size());
+                auto end_time = std::chrono::high_resolution_clock::now();
+                dfs_time = std::chrono::duration_cast<std::chrono::microseconds>(end_time - start_time).count() / 1000.0;
+                printf("DFS trouve en %.2f ms\n", dfs_time);
+                return;
+            }
+        }
         for (const auto& v : voisins) {
 
             if (v.type != casetype::Plein && !visited[v.index]) {
@@ -125,6 +138,7 @@ void Mapsolver::solve_DFS() {
 
     printf("Pas de chemin\n");
 }
+
 
 
 std::vector<voisin> Mapsolver::get_voisins(int index) const {

@@ -13,9 +13,7 @@ map::map(int l, int h)
     for(int i=0;i<nb;i++){
         int x= i%l;
         int y= i/l;
-
-        bool visibilité = false;
-        grille.emplace_back(ivec2(x, y), casetype::Vide, visibilité);
+        grille.emplace_back(ivec2(x, y), casetype::Vide);
     }
 }
 

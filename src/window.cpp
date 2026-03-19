@@ -86,7 +86,7 @@ void Window::updateButtons() {
             btn_generate->setEnabled(true);
             btn_start_BFS->setEnabled(false);
             btn_start_DFS->setEnabled(false);
-            btn_reset->setEnabled(false);
+            btn_reset->setEnabled(true);
             break;
 
         case AppState::MapGeneree:

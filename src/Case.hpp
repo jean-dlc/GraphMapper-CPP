@@ -10,20 +10,17 @@ enum class casetype{Vide, Plein, Start, End};
 
 class Case{   
     public :
-        Case(ivec2 posi, casetype type,bool visible);
+        Case(ivec2 posi, casetype type);
 
         ivec2 getcoord() const;
         casetype getcasetype() const;
-        bool getvisible() const ; 
 
-        void setvisible();
         void setcasetype(casetype type);
         void setcasetype_reset(casetype type); 
         
 
     private : 
         ivec2 posi;
-        bool visible;
         casetype type;
 };
 #endif
