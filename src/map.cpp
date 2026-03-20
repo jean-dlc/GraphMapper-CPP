@@ -44,20 +44,6 @@ std::vector<Case>& map::getgrille(){
     return grille;
 }
 
-// probablement inutile on modif case par case pas grille entière
-// std::vector<Case>& map::setmap(){
-//     return grille;
-// }
-
-
-
-// pas bon c'est pas un set et ca sert juste pour afficher et setcase va dans case.cpp
-// void map::setCase(ivec2 vec){
-//     float p = vec.x/this.cell_size + this.l *vec.y/this.cell_size;
-//     int i = (int)p; 
-//     return Grille[i];
-// }
-
 void map::set_casetype_in_grille(ivec2 vec, casetype type){
     int i = vec.x + (vec.y * largeur);
     
@@ -70,7 +56,8 @@ void map::set_casetype_in_grille(ivec2 vec, casetype type){
 int map::get_cell_size() const {
     return cell_size;
 }
-// il faut ajouter un videur de case pour eviter conflit a deuxieme lancement
+
+// lancement bloqué apres une fois, en attente du reset pour reactiver
 // permettre de modif la variable de chance case plein (20%)
 void map::generer_random_map(){
     std::srand(std::time(nullptr));
@@ -94,6 +81,7 @@ void map::generer_random_map(){
     
 }
 }
+
 
 int map::get_id(ivec2 vec) const {
     int i = vec.x + (vec.y * largeur);

@@ -23,11 +23,6 @@ render_area::render_area(map* m, QWidget *parent)
 render_area::~render_area()
 {}
 
-// void render_area::set_map(Map* m) {
-//     map_ptr = m;
-//     update(); 
-// }
-
 void render_area::paintEvent(QPaintEvent*) {
     if (!map_ptr) return;
     

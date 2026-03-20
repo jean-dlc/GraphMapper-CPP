@@ -38,7 +38,7 @@ void Case::setcasetype(casetype type){
     }
 }
 
-void Case::setcasetype_reset(casetype type){
+void Case::setcasetype_reset(casetype type){//uniquement pour reset map
     this->type = type; 
 }
     

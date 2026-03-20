@@ -59,7 +59,7 @@ void Mapsolver::solve_BFS() {
         }
     }
 
-    //REMONTER ET STOCKER LE CHEMIN
+    //remonter et stocker chemin
         if(trouve) {
             int etape = fin;
 
@@ -111,7 +111,7 @@ void Mapsolver::solve_DFS() {
 
         bool avance = false;
 
-        //obligation de refaire une boucle car position end supposée inconnue
+        //obligation de refaire une boucle car position end supposée inconnue => on utilise que les getter pour verifier
         for (const auto& v : voisins) {
             if(v.type == casetype::End){
                 visited[v.index] = true;
@@ -134,7 +134,7 @@ void Mapsolver::solve_DFS() {
             }
         }
 
-        //BACKTRACK (ultra important)
+        //BACKTRACK
         if (!avance) {
             path.pop_back();
         }

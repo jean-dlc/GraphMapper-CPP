@@ -18,24 +18,20 @@ class render_area : public QWidget
 {
     Q_OBJECT
 public:
-    render_area(map* m, QWidget *parent = 0);
+    render_area(map* m, QWidget *parent = 0);//destruction parent => destruction enfant
     ~render_area();
-
-    //lien map affichage
-    void set_map(map* m);
 
     void set_solver(Mapsolver* s) {
         solver_ptr = s;
         update(); // Redessine la zone pour afficher le chemin
     }
 
-protected:
+protected://convention qt
     void paintEvent(QPaintEvent *event) override;
     //clic faire case pleine
     void mousePressEvent(QMouseEvent *event) override;
 
-private:
-    
+private://regarde les pointeurs possédés par window
     map* map_ptr;
     Mapsolver* solver_ptr = nullptr;
 };

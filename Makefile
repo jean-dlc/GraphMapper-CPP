@@ -126,7 +126,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -226,7 +225,6 @@ Makefile: projet.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -305,7 +303,6 @@ Makefile: projet.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf 
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -382,6 +379,7 @@ moc_window.cpp: src/window.hpp \
 		src/map.hpp \
 		src/ivec2.hpp \
 		src/Case.hpp \
+		src/Mapsolver.hpp \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/jean/c++/2526-4imi-projetscpp-jean_arthus/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/jean/c++/2526-4imi-projetscpp-jean_arthus -I/home/jean/c++/2526-4imi-projetscpp-jean_arthus/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/window.hpp -o moc_window.cpp
@@ -390,6 +388,7 @@ moc_render_area.cpp: src/render_area.hpp \
 		src/map.hpp \
 		src/ivec2.hpp \
 		src/Case.hpp \
+		src/Mapsolver.hpp \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/jean/c++/2526-4imi-projetscpp-jean_arthus/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/jean/c++/2526-4imi-projetscpp-jean_arthus -I/home/jean/c++/2526-4imi-projetscpp-jean_arthus/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/render_area.hpp -o moc_render_area.cpp
@@ -414,20 +413,23 @@ main.o: src/main.cpp src/window.hpp \
 		src/render_area.hpp \
 		src/map.hpp \
 		src/ivec2.hpp \
-		src/Case.hpp
+		src/Case.hpp \
+		src/Mapsolver.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
 window.o: src/window.cpp src/window.hpp \
 		src/render_area.hpp \
 		src/map.hpp \
 		src/ivec2.hpp \
-		src/Case.hpp
+		src/Case.hpp \
+		src/Mapsolver.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o window.o src/window.cpp
 
 render_area.o: src/render_area.cpp src/render_area.hpp \
 		src/map.hpp \
 		src/ivec2.hpp \
-		src/Case.hpp
+		src/Case.hpp \
+		src/Mapsolver.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o render_area.o src/render_area.cpp
 
 map.o: src/map.cpp src/map.hpp \

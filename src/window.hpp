@@ -24,11 +24,8 @@ class render_area;
 enum class AppState {
     Initial,         // Juste après le lancement
     MapGeneree,      // La carte est prête, on attend un algo
-    CheminAffiche    // Un chemin est affiché
+    CheminAffiche    // Un chemin est affiché on attend reset ou l'autre algo
 };
-
-
-
 
 class Window : public QMainWindow {
     Q_OBJECT

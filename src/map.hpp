@@ -39,8 +39,7 @@ public:
     int get_index_start() const ;
     int get_index_end() const ;
     int get_cell_size() const ;
-    std::vector<Case>& getgrille() ; //doute sur le nom  verif a faire sur const
-    // std::vector<Case>& setmap(); inutile je pense
+    std::vector<Case>& getgrille() ; 
     void generer_random_map();
 };
 
