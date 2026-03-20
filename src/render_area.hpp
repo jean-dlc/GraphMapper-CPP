@@ -1,3 +1,12 @@
+// ============================================================
+// render_area — Zone de rendu Qt (hérite QWidget)
+// Dessine la grille et le chemin via QPainter.
+// Gère les clics souris pour placer des obstacles.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 #ifndef RENDER_AREA_HPP
 #define RENDER_AREA_HPP
 

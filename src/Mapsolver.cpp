@@ -1,3 +1,12 @@
+// ============================================================
+// Mapsolver — Moteur de résolution du labyrinthe
+// Implémente BFS (chemin optimal) et DFS (backtracking).
+// Mesure le temps d'exécution via std::chrono.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 #include "Mapsolver.hpp"
 #include "Case.hpp"
 #include <queue>
@@ -195,4 +204,11 @@ void Mapsolver::reset() {
         }
     }
     current_algo = AlgoType::NONE;
+}
+
+
+double Mapsolver::get_last_time() const {
+    if (current_algo == AlgoType::BFS) return bfs_time;
+    if (current_algo == AlgoType::DFS) return dfs_time;
+    return 0.0;
 }

@@ -1,3 +1,11 @@
+// ============================================================
+// main — Point d'entrée de l'application
+// Initialise QApplication, instancie map et Window.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 #include <QApplication>
 #include "window.hpp" 
 #include "map.hpp"

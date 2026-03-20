@@ -1,3 +1,12 @@
+// ============================================================
+// Case — Cellule élémentaire de la grille
+// Contient une position (ivec2) et un type (casetype).
+// Protège les cases Start/End contre l'écrasement accidentel.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 #ifndef CASE_HPP
 #define CASE_HPP
 

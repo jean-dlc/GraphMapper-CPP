@@ -1,3 +1,12 @@
+// ============================================================
+// Window — Fenêtre principale Qt (hérite QMainWindow)
+// Contrôleur central : orchestre map, Mapsolver et render_area.
+// Gère les états (AppState) et les interactions boutons.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 #include "window.hpp"
 #include "render_area.hpp"
 #include "map.hpp"
@@ -53,7 +62,7 @@ Window::~Window(){
 
 void Window::on_click_generer_random_map() {
     
-    m_ptr->generer_random_map(m_ptr->getgrille());
+    m_ptr->generer_random_map();
     current_state = AppState::MapGeneree;
     updateButtons();
 
@@ -65,14 +74,24 @@ void Window::on_click_start_algo_BFS() {
     current_state = AppState::CheminAffiche;
     updateButtons();
 
-    area->set_solver(solver_ptr); 
+    area->set_solver(solver_ptr.get());
+    double t = solver_ptr->get_last_time();
+    setWindowTitle(QString("Labyrinthe — BFS : %1 ms | chemin : %2 cases")
+        .arg(t, 0, 'f', 3)
+        .arg(solver_ptr->get_chemin().size()));
 }
 
 void Window::on_click_start_algo_DFS() {
     solver_ptr->solve_DFS();
     current_state = AppState::CheminAffiche;
     updateButtons();
-    area->set_solver(solver_ptr); 
+    area->set_solver(solver_ptr.get());
+
+
+    double t = solver_ptr->get_last_time();
+    setWindowTitle(QString("Labyrinthe — DFS : %1 ms | chemin : %2 cases")
+        .arg(t, 0, 'f', 3)
+        .arg(solver_ptr->get_chemin().size()));
 }
 
 
@@ -108,7 +127,9 @@ void Window::updateButtons() {
 
 void Window::on_click_reset() {
     solver_ptr->reset(); 
+    setWindowTitle("Projet Labyrinthe");
     current_state = AppState::Initial;
     updateButtons();
     area->set_solver(solver_ptr.get());
+
 }

@@ -1,3 +1,11 @@
+// ============================================================
+// map — Grille de cases
+// Stocke l'ensemble des cases dans un vector<Case> linéaire.
+// Gère la génération aléatoire et l'indexation (x,y) -> id.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
 
 #ifndef MAP_HPP
 #define MAP_HPP
@@ -31,7 +39,7 @@ public:
     int get_index_start() const ;
     int get_index_end() const ;
     int get_cell_size() const ;
-    const std::vector<Case>& getgrille() const; //doute sur le nom  verif a faire sur const
+    std::vector<Case>& getgrille() ; //doute sur le nom  verif a faire sur const
     // std::vector<Case>& setmap(); inutile je pense
     void generer_random_map();
 };

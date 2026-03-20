@@ -1,3 +1,12 @@
+// ============================================================
+// map — Grille de cases
+// Stocke l'ensemble des cases dans un vector<Case> linéaire.
+// Gère la génération aléatoire et l'indexation (x,y) -> id.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 #include "map.hpp"
 #include "Case.hpp"
 #include <vector>
@@ -31,7 +40,7 @@ Case map::getCase(ivec2 vec) const{
 }
 
 
-const std::vector<Case>& map::getgrille() const{
+std::vector<Case>& map::getgrille(){
     return grille;
 }
 

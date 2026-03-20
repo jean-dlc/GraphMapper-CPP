@@ -1,3 +1,12 @@
+// ============================================================
+// Window — Fenêtre principale Qt (hérite QMainWindow)
+// Contrôleur central : orchestre map, Mapsolver et render_area.
+// Gère les états (AppState) et les interactions boutons.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 #ifndef WINDOW_HPP
 #define WINDOW_HPP
 

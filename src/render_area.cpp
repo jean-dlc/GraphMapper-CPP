@@ -1,3 +1,12 @@
+// ============================================================
+// render_area — Zone de rendu Qt (hérite QWidget)
+// Dessine la grille et le chemin via QPainter.
+// Gère les clics souris pour placer des obstacles.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 #include "render_area.hpp"
 #include <QPainter>
 #include <QMouseEvent>
@@ -59,7 +68,7 @@ void render_area::paintEvent(QPaintEvent*) {
         font.setPointSize(8);
         painter.setFont(font);
 
-        for (int i = 0; i < chemin.size(); i++) {
+        for (int i = 0; i < (int)chemin.size(); i++) {
 
             int id_case = chemin[i];
 

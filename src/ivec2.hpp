@@ -1,3 +1,12 @@
+// ============================================================
+// ivec2 — Vecteur 2D entier
+// Struct utilitaire représentant une position (x, y) sur la grille.
+// Surcharge des opérateurs arithmétiques et de flux.
+// ------------------------------------------------------------
+// Auteurs : Jean de la Chapelle, Arthus Lucic
+// Date    : 20/03/2026
+// ============================================================
+
 
 #pragma once
 
