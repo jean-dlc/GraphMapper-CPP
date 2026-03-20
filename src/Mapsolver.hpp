@@ -33,7 +33,7 @@ private:
     //vecteurs spécifiques aux algos
     std::vector<int> chemin_final_bfs; 
     std::vector<int> chemin_final_dfs;
-    std::vector<voisin> liste_voisins;
+ 
 };
 
 #endif

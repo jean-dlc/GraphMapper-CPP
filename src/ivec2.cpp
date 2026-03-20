@@ -9,7 +9,7 @@
 
 
 ivec2::ivec2()
-    :x(0.0f),y(0.0f)
+    :x(0),y(0)
 {}
 
 ivec2::ivec2(int const x_param,int const y_param)

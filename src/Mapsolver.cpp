@@ -66,11 +66,6 @@ void Mapsolver::solve_BFS() {
         else {
              printf("Aucun chemin trouve\n");
         }
-
-        // DEBUG
-        for (int i = 0; i < chemin_final_bfs.size(); i++) {
-            printf("%d ", chemin_final_bfs[i]);
-        }
         printf("\n");
 }
 

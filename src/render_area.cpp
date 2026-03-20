@@ -47,26 +47,27 @@ void render_area::paintEvent(QPaintEvent*) {
 
         //posi * taille pixel
         painter.drawRect(pos.x * cs, pos.y * cs, cs, cs);
+    }
 
-       if (solver_ptr) {
-    const std::vector<int>& chemin = solver_ptr->get_chemin();
+    if (solver_ptr) {
+        const std::vector<int>& chemin = solver_ptr->get_chemin();
 
-    painter.setBrush(QColor(0, 120, 255, 150)); // couleur cases chemin
-    painter.setPen(Qt::black); // couleur chiffres chemin
+        painter.setBrush(QColor(0, 120, 255, 150)); // couleur cases chemin
+        painter.setPen(Qt::black); // couleur chiffres chemin
 
-    QFont font = painter.font();
-    font.setPointSize(8);
-    painter.setFont(font);
+        QFont font = painter.font();
+        font.setPointSize(8);
+        painter.setFont(font);
 
-    for (int i = 0; i < chemin.size(); i++) {
+        for (int i = 0; i < chemin.size(); i++) {
 
-        int id_case = chemin[i];
+            int id_case = chemin[i];
 
-        //skip start/end pour la couleur BLEUE
-        if (id_case == map_ptr->get_index_start() ||
-            id_case == map_ptr->get_index_end()) {
-            continue;
-        }
+            //skip start/end pour la couleur BLEUE
+            if (id_case == map_ptr->get_index_start() ||
+                id_case == map_ptr->get_index_end()) {
+                continue;
+            }
 
         int x = id_case % map_ptr->get_largeur();
         int y = id_case / map_ptr->get_largeur();
@@ -83,7 +84,7 @@ void render_area::paintEvent(QPaintEvent*) {
     }
 }
 }
-}
+
 
 //dessin murs
 void render_area::mousePressEvent(QMouseEvent *event) {

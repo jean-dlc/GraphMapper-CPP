@@ -28,7 +28,7 @@ struct ivec2
 /** Scalar product */
 int dot(ivec2 const& v0,ivec2 const& v1);
 
-/** Return a vector of same direction with unit length */
+
 
 
 /** Print the content of a vector on the command line */

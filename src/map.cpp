@@ -20,7 +20,7 @@ map::map(int l, int h)
 map::map(): map(20,20){}
 
 
-Case map::getCase(ivec2 vec){
+Case map::getCase(ivec2 vec) const{
     // float p = vec.x/this.cell_size + this.l *vec.y/this.cell_size;
     // int i = (int)p; 
     // return Grille[i];
@@ -31,7 +31,7 @@ Case map::getCase(ivec2 vec){
 }
 
 
-std::vector<Case>& map::getgrille(){
+const std::vector<Case>& map::getgrille() const{
     return grille;
 }
 
@@ -63,7 +63,7 @@ int map::get_cell_size() const {
 }
 // il faut ajouter un videur de case pour eviter conflit a deuxieme lancement
 // permettre de modif la variable de chance case plein (20%)
-void map::generer_random_map(std::vector<Case> &grille){
+void map::generer_random_map(){
     std::srand(std::time(nullptr));
     
     //def case start/end

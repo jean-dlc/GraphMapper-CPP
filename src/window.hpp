@@ -15,7 +15,6 @@ class render_area;
 enum class AppState {
     Initial,         // Juste après le lancement
     MapGeneree,      // La carte est prête, on attend un algo
-    AlgoEnCours,     // Un algo a été lancé (facultatif si l'algo est instantané)
     CheminAffiche    // Un chemin est affiché
 };
 
@@ -35,10 +34,11 @@ private slots:
     void on_click_start_algo_DFS(); //clique btn lance fct dans mapsolver.cpp
     void updateButtons(); //active/desactive les boutons selon l'etat de l'appli
     void on_click_reset(); //reset la map et les boutons
+
 private:
     AppState current_state = AppState::Initial;
     render_area* area; 
-    Mapsolver* solver_ptr;
+    std::unique_ptr<Mapsolver> solver_ptr;
     map* m_ptr;
 
     //boutons

@@ -33,7 +33,7 @@ Window::Window(map* m, QWidget *parent) : QMainWindow(parent) {
 
 // pointeur de la map et mapsolver
     this->m_ptr = m; 
-    solver_ptr = new Mapsolver(m_ptr);
+    solver_ptr = std::make_unique<Mapsolver>(m_ptr);
 
     connect(btn_generate, &QPushButton::clicked, this, &Window::on_click_generer_random_map);
     connect(btn_start_BFS, &QPushButton::clicked, this, &Window::on_click_start_algo_BFS);
@@ -110,5 +110,5 @@ void Window::on_click_reset() {
     solver_ptr->reset(); 
     current_state = AppState::Initial;
     updateButtons();
-    area->set_solver(solver_ptr); 
+    area->set_solver(solver_ptr.get());
 }
