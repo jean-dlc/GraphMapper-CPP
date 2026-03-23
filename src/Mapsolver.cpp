@@ -38,7 +38,7 @@ void Mapsolver::solve_BFS() {
 
     bool trouve = false;
     while(!file.empty()) {
-        int actuel = file.front();
+        int actuel = file.front(); 
         file.pop();
 
         if(actuel == fin) {
