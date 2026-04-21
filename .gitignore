@@ -1,0 +1,16 @@
+# Configuration Qt spécifique à ton PC
+*.pro.user
+
+# Fichiers de compilation (les fichiers .o et les exécutables)
+*.o
+/projet
+/GraphMapper-CPP
+/build-*/
+
+# Fichiers générés automatiquement par Qt/Make
+Makefile
+moc_*.cpp
+ui_*.h
+qrc_*.cpp
+debug/
+release/
