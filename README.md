@@ -46,7 +46,7 @@ L'utilisateur peut également **dessiner ses propres murs** en cliquant sur la g
 ```
 
 ---
-## 🖥️ Utilisation
+##  Utilisation
 
 1. **Lancer le programme** : une fenêtre s'ouvre avec une grille vide de 20×20
 2. **Générer une map** : cliquer sur `Générer Map` — place aléatoirement un départ (vert), une arrivée (rouge) et des obstacles (~19% des cases)
@@ -67,7 +67,7 @@ L'utilisateur peut également **dessiner ses propres murs** en cliquant sur la g
 
 ---
 
-## 🧠 Algorithmes implémentés
+##  Algorithmes implémentés
 
 ### BFS — Breadth-First Search
 - Utilise une `std::queue<int>` pour explorer niveau par niveau
@@ -92,7 +92,7 @@ L'utilisateur peut également **dessiner ses propres murs** en cliquant sur la g
 
 ---
 
-## 🏗️ Choix d'architecture
+##  Choix d'architecture
 
 Le projet suit une architecture **MVC (Modèle-Vue-Contrôleur)** :
 
